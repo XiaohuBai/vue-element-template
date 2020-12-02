@@ -2,7 +2,7 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-11-24 14:36:10
+ * @LastEditTime: 2020-12-02 16:39:50
  * @Description: 根据角色获取的路由，进行格式化后 路由注册
  */
 import { asyncRoutes, constantRoutes } from '@/router'
@@ -96,11 +96,11 @@ const mutations = {
 }
 
 const actions = {
-  async generateRoutes({ commit }, roles) {
+  async generateRoutes({ commit }, role) {
     return new Promise(resolve => {
       const loadMenuData = []
 
-      getRoutes().then(response => {
+      getRoutes(role).then(response => {
         // console.log(JSON.stringify(response))
         let data = response
         if (response.code !== 200) {

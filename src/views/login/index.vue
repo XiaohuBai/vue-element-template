@@ -2,7 +2,7 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-11-24 17:13:57
+ * @LastEditTime: 2020-12-02 09:39:41
  * @Description: 登录页面
 -->
 <template>
@@ -44,7 +44,7 @@
               <span class="svg-container">
                 <svg-icon icon-class="validCode" />
               </span>
-              <el-input ref="username" v-model="loginForm.code" placeholder="验证码" name="username" type="text" tabindex="3" maxlength="6" autocomplete="off" style="width: 75%" @keyup.enter.native="handleLogin" />
+              <el-input ref="username" v-model="loginForm.captcha" placeholder="验证码" name="username" type="text" tabindex="3" maxlength="6" autocomplete="off" style="width: 75%" @keyup.enter.native="handleLogin" />
             </el-form-item>
             <div class="login-code" style="cursor: pointer;width: 30%;height: 48px;float: right;background-color: #f0f1f5;">
               <img style="height: 48px;width: 100%;border: 1px solid rgba(0, 0, 0, 0.1);border-radius: 5px;" :src="codeUrl" @click="getVefify">
@@ -86,9 +86,8 @@ export default {
       loginForm: {
         username: 'admin',
         password: '123456',
-        rememberMe: false,
-        code: '',
-        uuid: ''
+        captcha: '',
+        captchaId: ''
       },
       loginRules: {
         username: [
@@ -97,7 +96,9 @@ export default {
         password: [
           { required: true, trigger: 'blur', message: '密码不能为空' }
         ],
-        code: [{ required: true, trigger: 'change', message: '验证码不能为空' }]
+        captcha: [
+          { required: true, trigger: 'change', message: '验证码不能为空' }
+        ]
       },
       passwordType: 'password',
       capsTooltip: false,
@@ -159,7 +160,7 @@ export default {
       getCaptcha().then((res) => {
         if (res !== undefined) {
           this.codeUrl = res.data.picPath
-          this.loginForm.uuid = res.data.captchaId
+          this.loginForm.captchaId = res.data.captchaId
         }
       })
     },
@@ -202,6 +203,7 @@ export default {
             })
             .catch(() => {
               this.loading = false
+              this.loginForm.captcha = ''
               this.getVefify()
             })
         } else {

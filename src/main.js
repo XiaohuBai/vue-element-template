@@ -1,3 +1,10 @@
+/*
+ * @Author: XiaohuBai@outlook.com
+ * @Date: 2020-12-01 23:57:28
+ * @LastEditors: XiaohuBai
+ * @LastEditTime: 2020-12-01 23:57:28
+ * @Description: 描述
+ */
 import Vue from 'vue'
 
 import Cookies from 'js-cookie'
@@ -34,10 +41,10 @@ import * as filters from './filters' // global filters
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
  */
-if (process.env.NODE_ENV === 'production') {
+/* if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
   mockXHR()
-}
+} */
 
 import Pagination from '@/components/Pagination'
 import BasicLayout from '@/layout/BasicLayout'
@@ -59,15 +66,15 @@ Vue.prototype.download = download
 Vue.component('Pagination', Pagination)
 Vue.component('BasicLayout', BasicLayout)
 
-Vue.prototype.msgSuccess = function(msg) {
+Vue.prototype.msgSuccess = function (msg) {
   this.$message({ showClose: true, message: msg, type: 'success' })
 }
 
-Vue.prototype.msgError = function(msg) {
+Vue.prototype.msgError = function (msg) {
   this.$message({ showClose: true, message: msg, type: 'error' })
 }
 
-Vue.prototype.msgInfo = function(msg) {
+Vue.prototype.msgInfo = function (msg) {
   this.$message.info(msg)
 }
 

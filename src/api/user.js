@@ -2,14 +2,14 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-18 15:57:32
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-11-24 17:08:54
+ * @LastEditTime: 2020-12-02 09:33:22
  * @Description: 描述
  */
 import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/login',
+    url: '/base/login',
     method: 'post',
     data
   })
@@ -17,7 +17,7 @@ export function login(data) {
 
 export function getCaptcha() {
   return request({
-    url: '/getCaptcha',
+    url: '/base/captcha',
     method: 'get'
   })
 }

@@ -2,7 +2,7 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-11-22 20:48:33
+ * @LastEditTime: 2020-12-02 16:34:09
  * @Description: 描述
  */
 import router from './router'
@@ -15,9 +15,9 @@ import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-let asyncRouterFlag = 0
-const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
+const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
+let asyncRouterFlag = 0
 router.beforeEach(async (to, from, next) => {
   // start progress bar
   NProgress.start()
@@ -49,7 +49,7 @@ router.beforeEach(async (to, from, next) => {
           // 根据角色，数据库查询角色路由
           asyncRouterFlag++
           const userInfo = store.getters.userInfo && store.getters.userInfo.length > 0
-          const accessRoutes = await store.dispatch('permission/generateRoutes', userInfo.roles)
+          const accessRoutes = await store.dispatch('permission/generateRoutes', userInfo.role)
 
           // dynamically add accessible routes
           // 添加角色路由

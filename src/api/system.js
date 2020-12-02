@@ -2,7 +2,7 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-19 11:28:14
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-11-19 13:17:24
+ * @LastEditTime: 2020-12-02 14:12:26
  * @Description: 描述
  */
 import request from '@/utils/request'
@@ -16,7 +16,7 @@ import request from '@/utils/request'
 
 export function getSystemConfig() {
   return request({
-    url: '/system/getSystemConfig',
+    url: '/base/getSystemConfig',
     method: 'get'
   })
 }
