@@ -2,17 +2,34 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-12-02 16:04:37
+ * @LastEditTime: 2020-12-04 00:05:24
  * @Description: 描述
  */
 
 import request from '@/utils/request'
 
+// 查询角色列表
+export function listRole(data) {
+  return request({
+    url: '/roleList',
+    method: 'get',
+    params: data
+  })
+}
+
+export function getRoutes(data) {
+  return request({
+    url: '/base/roleMenus',
+    method: 'post',
+    data
+  })
+}
+
 // 查询菜单列表
 export function listMenu(query) {
   return request({
-    url: '/listMenu',
-    method: 'get',
+    url: '/base/listMenu',
+    method: 'post',
     params: query
   })
 }

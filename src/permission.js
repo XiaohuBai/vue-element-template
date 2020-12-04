@@ -2,7 +2,7 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-12-02 16:34:09
+ * @LastEditTime: 2020-12-03 18:34:29
  * @Description: 描述
  */
 import router from './router'
@@ -14,8 +14,6 @@ import { getToken } from '@/utils/auth' // get token from cookie
 import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
-
-
 const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 let asyncRouterFlag = 0
 router.beforeEach(async (to, from, next) => {
@@ -48,7 +46,7 @@ router.beforeEach(async (to, from, next) => {
           // generate accessible routes map based on roles
           // 根据角色，数据库查询角色路由
           asyncRouterFlag++
-          const userInfo = store.getters.userInfo && store.getters.userInfo.length > 0
+          const userInfo = store.getters.userInfo
           const accessRoutes = await store.dispatch('permission/generateRoutes', userInfo.role)
 
           // dynamically add accessible routes

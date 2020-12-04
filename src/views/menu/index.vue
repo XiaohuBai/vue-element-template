@@ -207,7 +207,7 @@ export default {
     getList() {
       this.loading = true
       listMenu(this.queryParams).then((response) => {
-        this.menuList = response.data
+        this.menuList = response.data.menus
         this.loading = false
       })
     },

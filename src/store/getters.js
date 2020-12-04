@@ -2,9 +2,10 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-11-19 14:53:36
+ * @LastEditTime: 2020-12-03 18:18:25
  * @Description: 描述
  */
+
 const getters = {
   sidebar: state => state.app.sidebar,
   size: state => state.app.size,
