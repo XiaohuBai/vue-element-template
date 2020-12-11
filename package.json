@@ -44,6 +44,7 @@
     "jszip": "3.5.0",
     "moment": "^2.27.0",
     "monaco-editor": "^0.20.0",
+    "node-xlsx": "^0.15.0",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
     "path-to-regexp": "6.1.0",

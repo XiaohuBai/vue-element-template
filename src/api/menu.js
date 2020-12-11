@@ -2,7 +2,7 @@
  * @Author: XiaohuBai
  * @Date: 2020-11-16 14:19:50
  * @LastEditors: XiaohuBai
- * @LastEditTime: 2020-12-04 00:05:24
+ * @LastEditTime: 2020-12-10 17:06:38
  * @Description: 描述
  */
 
@@ -19,7 +19,7 @@ export function listRole(data) {
 
 export function getRoutes(data) {
   return request({
-    url: '/base/roleMenus',
+    url: '/menu/roleMenus',
     method: 'post',
     data
   })
@@ -28,7 +28,7 @@ export function getRoutes(data) {
 // 查询菜单列表
 export function listMenu(query) {
   return request({
-    url: '/base/listMenu',
+    url: '/menu/listMenus',
     method: 'post',
     params: query
   })
